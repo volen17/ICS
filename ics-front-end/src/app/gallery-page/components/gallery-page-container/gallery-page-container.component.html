@@ -1,0 +1,13 @@
+<div class="gallery-container" infinite-scroll (scrolled)="onScrollDown()">
+  <h1 *ngIf="loadingService.isLoading && pageNumber===1; else elseBlock">Loading...</h1>
+  <ng-template #elseBlock>
+    <div class="gallery-grid">
+      <mat-card *ngFor="let image of images" class="image-card" (click)="navigateToImage(image.id)">
+        <mat-card-content>
+          <img src="{{image.url}}" [ngClass]="isPortrait(image) ? 'mat-card-portrait' : 'mat-card-landscape'">
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-template>
+  <h2 class="end-page" *ngIf="endFlag">The end of the gallery</h2>
+</div>

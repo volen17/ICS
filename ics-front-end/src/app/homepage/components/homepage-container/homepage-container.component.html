@@ -1,0 +1,23 @@
+<div class="homepage-container">
+  <div class="contents">
+    <h1>Point to an image to tag...</h1>
+    <form class="analyse-image-form" (submit)="addImage($event)">
+      <mat-form-field class="url-form-field"  appearance="fill">
+        <mat-label>Enter URL</mat-label>
+        <input [(ngModel)]="imageUrl" class="url-input" (focus)="markTouched()" matInput placeholder="https://..." name="imageUrl" [formControl]="url" required>
+        <mat-error *ngIf="url.hasError('required')">
+          URL is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="url.hasError('pattern')">
+          Please enter a valid URL
+        </mat-error>
+      </mat-form-field>
+      <div class="submit-form-container">
+        <button *ngIf="!loadingService.isLoading; else elseBlock" [disabled]="url.invalid" class ="submit-button" color="primary" type="submit" mat-raised-button>Analyse</button>
+        <ng-template #elseBlock>
+          <button class ="submit-button" disabled color="primary" type="submit" mat-raised-button>Analysing...</button>
+        </ng-template>
+      </div>
+    </form>
+  </div>
+</div>

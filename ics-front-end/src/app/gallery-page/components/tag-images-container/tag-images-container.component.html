@@ -1,0 +1,12 @@
+<div class="gallery-container">
+  <h1 *ngIf="loadingService.isLoading; else elseBlock">Loading...</h1>
+  <ng-template #elseBlock>
+    <div class="gallery-grid">
+      <mat-card *ngFor="let image of images" class="image-card" (click)="navigateToImage(image.id)">
+        <mat-card-content>
+          <img src="{{image.url}}" [ngClass]="isPortrait(image) ? 'mat-card-portrait' : 'mat-card-landscape'">
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-template>
+</div>

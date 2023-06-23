@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="navbar">
+  <app-autocomplete *ngIf="isSearchBarActive" class="autocomplete"></app-autocomplete>
+  <span class="flexExpand"></span>
+  <button *ngIf="!isAnalyseButtonActive; else analyseElseBLock" mat-stroked-button disabled class="navbar-button">
+    Analyse
+  </button>
+  <ng-template #analyseElseBLock>
+    <button mat-raised-button class="navbar-button" (click)="navigate('/')">
+      Analyse
+    </button>
+  </ng-template>
+  <button *ngIf="!isGalleryButtonActive; else galleryElseBLock" mat-stroked-button disabled class="navbar-button">
+    Gallery
+  </button>
+  <ng-template #galleryElseBLock>
+    <button mat-raised-button class="navbar-button" (click)="navigate('/images')">
+      Gallery
+    </button>
+  </ng-template>
+<app-dark-mode-toggle></app-dark-mode-toggle>
+</mat-toolbar>

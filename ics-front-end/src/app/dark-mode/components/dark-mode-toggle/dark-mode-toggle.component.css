@@ -1,0 +1,5 @@
+.flex-stretch {
+  display: flex;
+  gap: 5px;
+  padding-left: 10px;
+}

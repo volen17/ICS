@@ -1,0 +1,42 @@
+
+.navbar {
+  display: flex;
+  justify-content: right;
+  height: 80px;
+  padding-right: 50px;
+  padding-left: 50px;
+  gap:10px;
+}
+
+.navbar-button {
+  margin: 10px;
+  width: 150px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.mat-stroked-button{
+  color: white !important;
+}
+
+button.mat-raised-button:hover {
+  background-color: mediumpurple;
+  color: #FFD740;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flexExpand {
+  flex: 1 1 auto;
+}
+
+.content {
+  padding: 16px;
+  min-height: 100vh;
+}
+
+mat-card {
+  max-width: 400px;
+}

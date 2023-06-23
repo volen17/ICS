@@ -1,0 +1,31 @@
+.homepage-container {
+  height: calc(100vh - 60px);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.contents {
+  display: grid;
+  justify-items: center;
+}
+
+.url-form-field {
+  width: 500px;
+}
+
+.url-input {
+  width: 500px;
+}
+
+.submit-form-container{
+  display: grid;
+  justify-items: center;
+  padding: 50px;
+}
+
+.submit-button{
+  width: 250px;
+  height: 50px;
+  font-size: large;
+}

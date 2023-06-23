@@ -1,0 +1,28 @@
+<div class="image-page-container">
+
+
+  <h1 *ngIf="loadingService.isLoading; else elseBlock">Loading...</h1>
+  <ng-template #elseBlock>
+    <div [ngClass]="isPortrait(image) ? 'div-portrait' : 'div-landscape'">
+      <img src="{{image?.url}}" [ngClass]="isPortrait(image) ? 'img-portrait' : 'img-landscape'">
+      <div class="tags-container">
+        <h1 class="tags-header">Tags</h1>
+        <div [ngClass]="isPortrait(image) ? 'tags-grid-portrait' : 'tags-grid-landscape'">
+          <div *ngFor="let tag of image?.tags">
+            <button mat-raised-button class="tag-button"
+                    matTooltip="confidence: {{tag.confidence}}" (click) = "onSubmit(tag.tagName)" >
+              {{tag.tagName}}
+            </button>
+
+          </div>
+        </div>
+        <div>
+          <h2 class="analysed">Analysed on {{image?.analysedOn  | date:'dd.MM.yyyy'}}</h2>
+          <h2 class="analysed">Analysed at {{image?.analysedAt}}</h2>
+        </div>
+      </div>
+
+
+    </div>
+  </ng-template>
+</div>

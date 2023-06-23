@@ -1,0 +1,16 @@
+<form [formGroup]="tagSearchForm" (ngSubmit)="onSubmit()">
+<mat-form-field class="mat-form-field" appearance="legacy" color="accent">
+  <input [(ngModel)]="selectedTag" type="text" placeholder="Enter Tag" matInput [formControl]="myControl" [matAutocomplete]="auto">
+  <button *ngIf="selectedTag" matSuffix mat-icon-button aria-label="Clear" (click)="clearSelection()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelected()">
+    <mat-option *ngIf="isLoading; else elseBlock" class="is-loading">Loading...</mat-option>
+    <ng-template #elseBlock>
+    <mat-option *ngFor="let option of filteredOptions" [value]="option">
+      {{option}}
+    </mat-option>
+    </ng-template>
+  </mat-autocomplete>
+</mat-form-field>
+</form>
